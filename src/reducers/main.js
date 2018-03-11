@@ -1,9 +1,9 @@
 let INITIAL_STATE={
-dataList:[[],[]]
+dataList:[]
 }
 export default (state=INITIAL_STATE,action) => {
   switch(action.type){
-          case 'WEB_SOCKETS':
+          case 'CALL_LIST':
             return {...state,
               dataList:action.payload
             }

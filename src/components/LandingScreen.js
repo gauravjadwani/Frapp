@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Tab } from 'semantic-ui-react';
+import List from './List';
 // import {BootstrapTable, TableHeaderColumn,SearchField } from 'react-bootstrap-table';
 // import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 // import Paper from 'material-ui/Paper';
@@ -9,12 +10,12 @@ import { Tab } from 'semantic-ui-react';
 class LandingScreen extends Component {
 render() {
   const panes = [
-    { menuItem: 'Tab 1', render: () => <Tab.Pane>Tab 1 Content</Tab.Pane> },
-    { menuItem: 'Tab 2', render: () => <Tab.Pane>Tab 2 Content</Tab.Pane> },
-    { menuItem: 'Tab 3', render: () => <Tab.Pane>Tab 3 Content</Tab.Pane> },
+    { menuItem: 'Tab 1', render: () => <Tab.Pane size="massive"><List/></Tab.Pane> },
+    { menuItem: 'Tab 2', render: () => <Tab.Pane size="massive">Tab 2 Content</Tab.Pane> },
+    { menuItem: 'Tab 3', render: () => <Tab.Pane size="massive">Tab 3 Content</Tab.Pane> },
   ]
     return (
-  <Tab panes={panes} />
+  <Tab panes={panes}  size="large" activeIndex={0}/>
     );
   }
 }

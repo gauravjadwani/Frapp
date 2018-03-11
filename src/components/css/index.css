@@ -1,7 +1,9 @@
-.react-bs-table-search-form{
-  padding: 5% !important;
+.image{
+  margin-top:5% !important;
 }
-
-div[class^="bar-chart-"]{
-    margin-top: 20%;
+.left{
+  float: left;
+}
+.right{
+  float: right;
 }
