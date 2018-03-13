@@ -3,17 +3,17 @@ import Paper from 'material-ui/Paper';
 import Avatar from 'material-ui/Avatar';
 import { Icon } from 'semantic-ui-react';
 import {connect} from 'react-redux';
-import {CALL_LIST} from './../actions';
+import {CALL_LIST,CHANGE_TAB} from './../actions';
 import ConfigureStore from './../store/configureStore';
 
 class List extends Component{
   constructor(props) {
     super(props);
-    this.state = {
-    dataList: [],
-    isloading: true
-  };
-
+  //   this.state = {
+  //   dataList: [],
+  //   isloading: true
+  // };
+ this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount = () => {
@@ -30,16 +30,22 @@ class List extends Component{
 //     });
 this.props.CALL_LIST();
 }
+handleClick = () => {
+  console.log('handleclicked',this);
+this.props.CHANGE_TAB(1);
+ }
+
 render() {
-  console.log('list',this.s)
+  let p=this;
+  console.log('p',p);
   const style = {
     height: 150,
     width: 150,
     margin: 50,
     textAlign: 'center',
-    display: 'inline-block',
-  };
+    display: 'inline-block',  };
   let childrenn=function(obj){
+    // console.log(this,'List');
     return(
       <div>
       <div className="row">
@@ -48,7 +54,7 @@ render() {
 <br/>
   <div className="row">
     <div className="col-md-4">
-      <button className="btn btn-primary btn-xs">Details</button>
+      <button className="btn btn-primary btn-xs" onClick={p.handleClick}>Details</button>
     </div>
     <div className="col-md-8">
  <Icon name='eye' color="teal"/>
@@ -59,6 +65,7 @@ render() {
     );
   }
   let componentList = this.props.dataList.map(function(obj){
+    console.log(p,'map');
            var i = 0;
            return (
           <Paper style={style} zDepth={4} children={childrenn(obj)}/>
@@ -74,8 +81,8 @@ render() {
 }
 }
 const mapStateToProps = ({main}) => {
-  const {dataList} = main;
-  return {dataList}
+  const {dataList,currentTab} = main;
+  return {dataList,currentTab}
 }
-export default connect(mapStateToProps, {CALL_LIST})(List);
+export default connect(mapStateToProps, {CALL_LIST,CHANGE_TAB})(List);
 // export default List;
