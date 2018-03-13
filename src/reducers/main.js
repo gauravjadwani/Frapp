@@ -1,6 +1,7 @@
 let INITIAL_STATE={
 dataList:[],
-currentTab:0
+currentTab:0,
+currentItem:0
 }
 export default (state=INITIAL_STATE,action) => {
   console.log("current called",action);
@@ -12,6 +13,10 @@ export default (state=INITIAL_STATE,action) => {
             case 'CHANGE_TAB':
             return {...state,
               currentTab:action.payload
+            }
+            case 'CURRENT_ITEM':
+            return {...state,
+              currentItem:action.payload
             }
       default:
         return state;

@@ -36,3 +36,11 @@ export const CHANGE_TAB = (a) => {
 
 }
 }
+export const CURRENT_ITEM = (item) => {
+  console.log('current item is ',item);
+
+    return(dispatch) => {
+            dispatch({type: 'CURRENT_ITEM', payload:item});
+
+}
+}

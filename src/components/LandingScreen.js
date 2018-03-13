@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Tab } from 'semantic-ui-react';
 import List from './List';
+import Details from './Details';
 import {connect} from 'react-redux';
 import {CALL_LIST,CHANGE_TAB} from './../actions';
 import ConfigureStore from './../store/configureStore';
@@ -17,9 +18,8 @@ render() {
   console.log('currenr',this.props.currentTab);
 // const {currentTab}=
   const panes = [
-    { menuItem: 'Tab 1', render: () => <Tab.Pane size="massive"><List/></Tab.Pane> },
-    { menuItem: 'Tab 2', render: () => <Tab.Pane size="massive">Tab 2 Content</Tab.Pane> },
-    { menuItem: 'Tab 3', render: () => <Tab.Pane size="massive">Tab 3 Content</Tab.Pane> },
+    { menuItem: 'Item List', render: () => <Tab.Pane size="massive"><List/></Tab.Pane> },
+    { menuItem: 'Details', render: () => <Tab.Pane size="massive"><Details/></Tab.Pane> }
   ]
     return (
   <Tab panes={panes}  size="large" activeIndex={this.props.currentTab} onTabChange={this.handleTabChange}/>
