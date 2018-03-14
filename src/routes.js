@@ -6,6 +6,7 @@ import LandingScreen from './components/LandingScreen';
 
 export default (
   <Route path="/" component={App}>
+        <IndexRoute component={LandingScreen}/>
 <Route path='/landingscreen' component={LandingScreen}/>
   </Route>
 );

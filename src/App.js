@@ -4,6 +4,7 @@ import './App.css';
 // import 'react-bootstrap-table/dist/react-bootstrap-table-all.min.css';
 import LandingScreen from './components/LandingScreen';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Header from './components/Header';
 import './components/css/index.css';
 
 
@@ -16,6 +17,7 @@ class App extends Component {
     return (
       <MuiThemeProvider>
       <div>
+              <Header/>
         <div className="container">
 
           {this.props.children}

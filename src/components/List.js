@@ -9,30 +9,17 @@ import ConfigureStore from './../store/configureStore';
 class List extends Component{
   constructor(props) {
     super(props);
-  //   this.state = {
-  //   dataList: [],
-  //   isloading: true
-  // };
+ // this.onMouseOver = this.onMouseOver.bind(this);
+ // this.onMouseOut = this.onMouseOut.bind(this);
  this.handleClick = this.handleClick.bind(this);
   }
 
   componentWillMount = () => {
-//     var _this=this;
-//     var request = new Request('http://54.169.233.100:8080/favourite.json');
-//     fetch('http://54.169.233.100:8080/favourite.json',{mode: 'cors'})
-//     .then(function(response) {
-//         return response.json();
-// }).then(function(j){
-//       console.log(j);
-//         _this.setState({dataList: j});
-//     }).catch(function(error) {
-//       console.log('Request failed', error)
-//     });
 this.props.CALL_LIST();
+  console.log(this.props,'len');
 }
+
 handleClick = (e) => {
-  console.log((e.target.getAttribute("data-id")),'fefef');
-  // console.log(e.target['data-id'],e);
   this.props.CURRENT_ITEM(parseInt(e.target.getAttribute("data-id")));
 this.props.CHANGE_TAB(1);
 
@@ -43,13 +30,12 @@ render() {
   let p=this;
   console.log('p',p);
   const style = {
-    height: 150,
-    width: 150,
+    height: 170,
+    width: 170,
     margin: 50,
     textAlign: 'center',
     display: 'inline-block',  };
   let childrenn=function(obj,id){
-    // console.log(this,'List');
     return(
       <div>
       <div className="row">
@@ -57,22 +43,23 @@ render() {
   </div>
 <br/>
   <div className="row">
-    <div className="col-md-4">
-      <button data-id={id} className="btn btn-primary btn-xs" onClick={p.handleClick}>Details</button>
+    <div className="pull-left">
+      <button data-id={id} className="btn btn-primary btn-xs detailsButton" onClick={p.handleClick}>Details</button>
     </div>
-    <div className="col-md-8">
+    <div className="pull-right t">
  <Icon name='eye' color="teal"/>
- <span>{(obj['view-count']+'').substr(0,4)}</span>
+ <span className="viewCount">{((obj['view-count']/10000).toFixed(1)+'k')}</span>
     </div>
+  </div>
+  <div className="row customTitle">
+{obj.title}
   </div>
 </div>
     );
   }
   let componentList = this.props.dataList.map(function(obj,i){
-    console.log(obj,'map',i);
-           // var i = 0;
            return (
-          <Paper key={i} id={i} style={style} zDepth={4} children={childrenn(obj,i)}/>
+          <Paper key={i} id='i' style={style} children={childrenn(obj,i)} transitionEnabled={true} zDepth={4}/>
            );
        });
   return(
@@ -89,4 +76,3 @@ const mapStateToProps = ({main}) => {
   return {dataList,currentTab}
 }
 export default connect(mapStateToProps, {CALL_LIST,CHANGE_TAB,CURRENT_ITEM})(List);
-// export default List;

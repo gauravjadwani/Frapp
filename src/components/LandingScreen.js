@@ -9,19 +9,17 @@ import ConfigureStore from './../store/configureStore';
 class LandingScreen extends Component {
 constructor(props) {
   super();
-  // _this=this;
 }
   handleTabChange = (e, { activeIndex }) => {
 this.props.CHANGE_TAB(activeIndex);
   };
 render() {
-  console.log('currenr',this.props.currentTab);
-// const {currentTab}=
   const panes = [
     { menuItem: 'Item List', render: () => <Tab.Pane size="massive"><List/></Tab.Pane> },
     { menuItem: 'Details', render: () => <Tab.Pane size="massive"><Details/></Tab.Pane> }
   ]
     return (
+
   <Tab panes={panes}  size="large" activeIndex={this.props.currentTab} onTabChange={this.handleTabChange}/>
     );
   }
