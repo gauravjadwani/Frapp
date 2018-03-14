@@ -16,7 +16,7 @@ this.props.CHANGE_TAB(activeIndex);
 render() {
   const panes = [
     { menuItem: 'Item List', render: () => <Tab.Pane size="massive"><List/></Tab.Pane> },
-    { menuItem: 'Details', render: () => <Tab.Pane size="massive"><Details/></Tab.Pane> }
+    { menuItem: 'Favourites', render: () => <Tab.Pane size="massive"><Details/></Tab.Pane> }
   ]
     return (
 
