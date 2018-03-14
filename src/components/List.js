@@ -9,26 +9,18 @@ import ConfigureStore from './../store/configureStore';
 class List extends Component{
   constructor(props) {
     super(props);
- // this.onMouseOver = this.onMouseOver.bind(this);
- // this.onMouseOut = this.onMouseOut.bind(this);
  this.handleClick = this.handleClick.bind(this);
   }
-
-  componentWillMount = () => {
+componentWillMount = () => {
 this.props.CALL_LIST();
-  console.log(this.props,'len');
 }
-
 handleClick = (e) => {
   this.props.CURRENT_ITEM(parseInt(e.target.getAttribute("data-id")));
 this.props.CHANGE_TAB(1);
-
-
- }
+}
 
 render() {
   let p=this;
-  console.log('p',p);
   const style = {
     height: 170,
     width: 170,

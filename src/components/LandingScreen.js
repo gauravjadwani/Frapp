@@ -29,4 +29,3 @@ const mapStateToProps = ({main}) => {
   return {currentTab}
 }
 export default connect(mapStateToProps, {CHANGE_TAB})(LandingScreen);
-// export default LandingScreen;

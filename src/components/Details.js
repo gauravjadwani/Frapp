@@ -7,14 +7,11 @@ import {CALL_LIST,CHANGE_TAB,CURRENT_ITEM} from './../actions';
 import ConfigureStore from './../store/configureStore';
 import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
-// import MobileTearSheet from '../../..MobileTearSheet';
 
 class Details extends Component{
   constructor(props) {
     super();
     this.holder=props.dataList[props.currentItem];
-     console.log('current props',props.dataList[props.currentItem]);
-    // _this=this;
   }
 render() {
   const style = {
@@ -25,7 +22,6 @@ render() {
     display: 'inline-block'
   };
   let childrenn=function(obj){
-    console.log(obj,'holder in childrenn');
     return(
       <div>
       <div className="row">
@@ -40,9 +36,7 @@ render() {
         <Divider inset={true} />
      <ListItem insetChildren={true} primaryText="Desc" secondaryText={obj.desc} disabled={true}/>
   </List>
-
 </div>
-
 <br/>
 </div>
     );
@@ -59,4 +53,3 @@ const mapStateToProps = ({main}) => {
   return {dataList,currentItem}
 }
 export default connect(mapStateToProps, {CALL_LIST,CURRENT_ITEM})(Details);
-// export default List;
